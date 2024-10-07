@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome in Different Languages</title>
+</head>
+<body>
+    <h1>Welcome in Different Languages</h1>
+    <h2 id="welcomeText">Welcome!</h2>
+
+    <script>
+        const welcomes = [
+            "Welcome!",        // English
+            "Bienvenido!",     // Spanish
+            "Bienvenue!",      // French
+            "Willkommen!",     // German
+            "Benvenuto!",      // Italian
+            "Добро пожаловать!", // Russian
+            "欢迎!",            // Chinese (Simplified)
+            "ようこそ!",        // Japanese
+            "안녕하세요!",        // Korean
+            "Selamat datang!", // Indonesian
+            "أهلاً وسهلاً!",    // Arabic
+            "स्वागत है!",       // Hindi
+            "Welcom!",         // Dutch
+            "Velkommen!"       // Norwegian
+        ];
+
+        let index = 0;
+
+        function updateWelcome() {
+            // Change the welcome message to the next language
+            document.getElementById("welcomeText").innerText = welcomes[index];
+            // Update the index for the next change
+            index = (index + 1) % welcomes.length; // Loop back to the start
+        }
+
+        // Call updateWelcome every 3 seconds (3000 milliseconds)
+        setInterval(updateWelcome, 3000);
+    </script>
+</body>
+</html>
