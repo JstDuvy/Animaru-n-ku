@@ -15,8 +15,8 @@
 
         body {
             font-family: 'FOT Bokutoh Pro', Arial, sans-serif; /* Set the custom font */
-            background-color: transparent; /* Set background color */
-            color: #FFFFFF; /* Set text color */
+            background-color: transparent; /* Set background to transparent */
+            color: #333; /* Set text color */
             text-align: center; /* Center the text */
             padding: 50px; /* Add some padding */
         }
@@ -25,25 +25,10 @@
             font-size: 2em; /* Set font size for the welcome text */
             margin-top: 20px; /* Add some margin */
         }
-
-        button {
-            padding: 10px 20px; /* Add padding to the button */
-            font-size: 1em; /* Set font size for the button */
-            color: white; /* Set button text color */
-            background-color: #007BFF; /* Set button background color */
-            border: none; /* Remove border */
-            border-radius: 5px; /* Add rounded corners */
-            cursor: pointer; /* Change cursor on hover */
-        }
-
-        button:hover {
-            background-color: #0056b3; /* Change button color on hover */
-        }
     </style>
 </head>
 <body>
     <h2 id="welcomeText">Welcome!</h2>
-    <button onclick="showWelcome()">Show Welcome</button>
 
     <script>
         const welcomes = [
@@ -68,9 +53,12 @@
         function showWelcome() {
             // Change the welcome message to the next language
             document.getElementById("welcomeText").innerText = welcomes[index];
-            // Update the index for the next click
+            // Update the index for the next message
             index = (index + 1) % welcomes.length; // Loop back to the start
         }
+
+        // Change the welcome message every 2 seconds (2000 milliseconds)
+        setInterval(showWelcome, 2000);
     </script>
 </body>
 </html>
