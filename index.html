@@ -15,11 +15,10 @@
 
         body {
             font-family: 'FOT Bokutoh Pro', Arial, sans-serif; /* Set the custom font */
-            background-color: transparent; /* Remove background color */
-            color: #FFFFFF; /* Initial text color is white */
+            background-color: transparent; /* Set background to transparent */
+            color: #FFFFFF; /* Set text color */
             text-align: center; /* Center the text */
             padding: 50px; /* Add some padding */
-            transition: color 1.5s ease; /* Transition between text colors */
         }
 
         h2 {
@@ -46,56 +45,20 @@
             "أهلاً وسهلاً!",    // Arabic
             "स्वागत है!",       // Hindi
             "Welcom!",         // Dutch
-            "Velkommen!",      // Norwegian
-            "Bem-vindo!",      // Portuguese
-            "Välkommen!",      // Swedish
-            "Tervetuloa!",     // Finnish
-            "Karibu!",         // Swahili
-            "Welkom!",         // Afrikaans
-            "Mabuhay!",        // Filipino
-            "Witamy!",         // Polish
-            "Merhaba!",        // Turkish
-            "Καλώς ήρθατε!",    // Greek
-            "ברוך הבא!",        // Hebrew
-            "Bine ați venit!",  // Romanian
-            "Laipni lūdzam!",   // Latvian
-            "Dobrodošli!",      // Croatian
-            "Üdvözöljük!",      // Hungarian
-            "Hoşgeldiniz!",     // Turkish
-            "Welkom!",          // Flemish
-            "Sveiki atvykę!",   // Lithuanian
-            "Bienvenue!",       // Haitian Creole
-            "Dobrodošli!",      // Serbian
-            "Добре дошли!",     // Bulgarian
-            "환영합니다!",        // Korean (formal)
-            "خوش آمدید!",        // Persian
-            "Velkomin!",        // Icelandic
-            "ຍິນດີຕ້ອນຮັບ!",    // Lao
-            "Chào mừng!",       // Vietnamese
-            "Mirë se vini!"     // Albanian
+            "Velkommen!"       // Norwegian
         ];
 
         let index = 0;
-        let white = true; // Track if the color is white or dark
 
-        function toggleColorAndWelcome() {
-            const welcomeText = document.getElementById("welcomeText");
-            
-            // Switch between white and dark every 1.5 seconds
-            if (white) {
-                welcomeText.style.color = '#FFFFFF'; // White color
-            } else {
-                welcomeText.style.color = '#191919'; // Dark color
-                // Only change the language when the color turns to dark
-                index = (index + 1) % welcomes.length; // Update the index
-                welcomeText.innerText = welcomes[index]; // Change the welcome message
-            }
-            
-            white = !white; // Toggle the color for the next iteration
+        function showWelcome() {
+            // Change the welcome message to the next language
+            document.getElementById("welcomeText").innerText = welcomes[index];
+            // Update the index for the next message
+            index = (index + 1) % welcomes.length; // Loop back to the start
         }
 
-        // Toggle the color and language every 1.5 seconds
-        setInterval(toggleColorAndWelcome, 1500);
+        // Change the welcome message every 2 seconds (2000 milliseconds)
+        setInterval(showWelcome, 2000);
     </script>
 </body>
 </html>
