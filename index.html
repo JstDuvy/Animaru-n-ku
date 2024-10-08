@@ -4,10 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome in Different Languages</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* Set the font */
+            background-color: #f0f0f0; /* Set background color */
+            color: #333; /* Set text color */
+            text-align: center; /* Center the text */
+            padding: 50px; /* Add some padding */
+        }
+
+        h2 {
+            font-size: 2em; /* Set font size for the welcome text */
+            margin-top: 20px; /* Add some margin */
+        }
+
+        button {
+            padding: 10px 20px; /* Add padding to the button */
+            font-size: 1em; /* Set font size for the button */
+            color: white; /* Set button text color */
+            background-color: #007BFF; /* Set button background color */
+            border: none; /* Remove border */
+            border-radius: 5px; /* Add rounded corners */
+            cursor: pointer; /* Change cursor on hover */
+        }
+
+        button:hover {
+            background-color: #0056b3; /* Change button color on hover */
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome in Different Languages</h1>
     <h2 id="welcomeText">Welcome!</h2>
+    <button onclick="showWelcome()">Show Welcome</button>
 
     <script>
         const welcomes = [
@@ -29,15 +57,12 @@
 
         let index = 0;
 
-        function updateWelcome() {
+        function showWelcome() {
             // Change the welcome message to the next language
             document.getElementById("welcomeText").innerText = welcomes[index];
-            // Update the index for the next change
+            // Update the index for the next click
             index = (index + 1) % welcomes.length; // Loop back to the start
         }
-
-        // Call updateWelcome every 3 seconds (3000 milliseconds)
-        setInterval(updateWelcome, 3000);
     </script>
 </body>
 </html>
