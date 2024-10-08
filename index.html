@@ -16,27 +16,14 @@
         body {
             font-family: 'FOT Bokutoh Pro', Arial, sans-serif; /* Set the custom font */
             background-color: transparent; /* Set background to transparent */
+            color: #FFFFFF; /* Set text color */
             text-align: center; /* Center the text */
             padding: 50px; /* Add some padding */
-            transition: color 0.5s ease; /* Smooth color transition */
         }
 
         h2 {
             font-size: 2em; /* Set font size for the welcome text */
             margin-top: 20px; /* Add some margin */
-        }
-
-        /* Set default color scheme based on system preference */
-        @media (prefers-color-scheme: dark) {
-            body {
-                color: white; /* Set default text color for dark mode */
-            }
-        }
-
-        @media (prefers-color-scheme: light) {
-            body {
-                color: black; /* Set default text color for light mode */
-            }
         }
     </style>
 </head>
@@ -63,21 +50,11 @@
 
         let index = 0;
 
-        function invertColor(currentColor) {
-            // Return white if current color is black, otherwise return black
-            return currentColor === 'rgb(0, 0, 0)' ? 'white' : 'black';
-        }
-
         function showWelcome() {
-            const welcomeText = document.getElementById("welcomeText");
             // Change the welcome message to the next language
-            welcomeText.innerText = welcomes[index];
+            document.getElementById("welcomeText").innerText = welcomes[index];
             // Update the index for the next message
             index = (index + 1) % welcomes.length; // Loop back to the start
-
-            // Invert the text color based on the current color
-            const currentColor = getComputedStyle(welcomeText).color;
-            welcomeText.style.color = invertColor(currentColor);
         }
 
         // Change the welcome message every 2 seconds (2000 milliseconds)
